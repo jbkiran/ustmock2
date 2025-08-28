@@ -6,5 +6,4 @@ describe("handleError", () => {
     const result = handleError(new Error("Test error"));
     expect(result).toBe("Test error");
   });
-
 });

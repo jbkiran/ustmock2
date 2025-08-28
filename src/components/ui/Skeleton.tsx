@@ -1,5 +1,5 @@
 type SkeletonProps = {
-  className: string;
+  className?: string;
 };
 const Skeleton = ({ className }: SkeletonProps) => {
   return (

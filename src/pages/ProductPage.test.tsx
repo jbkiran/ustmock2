@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, vi, beforeEach } from "vitest";
+import { describe, it, vi, beforeEach, expect, type Mock } from "vitest";
 import ProductPage from "./ProductPage";
 
-// Mock dependencies
 vi.mock("../components/ProductList", () => ({
   default: ({ productData }: { productData: any[] }) => (
     <div data-testid="product-list">{productData.length} products</div>
@@ -25,7 +24,7 @@ describe("ProductPage", () => {
   });
 
   it("renders error state", () => {
-    (useProducts as vi.Mock).mockReturnValue({
+    (useProducts as Mock).mockReturnValue({
       loading: false,
       error: true,
       products: [],
@@ -36,7 +35,7 @@ describe("ProductPage", () => {
   });
 
   it("renders loading skeletons when loading", () => {
-    (useProducts as vi.Mock).mockReturnValue({
+    (useProducts as Mock).mockReturnValue({
       loading: true,
       error: false,
       products: [],
@@ -45,5 +44,4 @@ describe("ProductPage", () => {
     render(<ProductPage />);
     expect(screen.getAllByTestId("skeleton").length).toBe(4);
   });
-
 });

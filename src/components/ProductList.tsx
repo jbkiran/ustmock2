@@ -10,7 +10,14 @@ const ProductList = ({ productData }: ProductListProps) => {
   if (productData.length === 0) {
     return <p>No Record Found</p>;
   }
-  return productData.map((product) => <ProductCard key={product.id} product={product} isFavourite={isFavourite} toggleFavourite={toggleFavourite}/>);
+  return productData.map((product) => (
+    <ProductCard
+      key={product.id}
+      product={product}
+      isFavourite={isFavourite}
+      toggleFavourite={toggleFavourite}
+    />
+  ));
 };
 
 export default ProductList;

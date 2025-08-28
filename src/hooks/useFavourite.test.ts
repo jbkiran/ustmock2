@@ -20,5 +20,4 @@ describe("useFavourite hook ", () => {
     expect(result.current.favourite).toContain(5);
     expect(result.current.isFavourite(5)).toBe(true);
   });
-
 });

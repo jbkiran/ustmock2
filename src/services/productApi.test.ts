@@ -33,5 +33,4 @@ describe("productApi", () => {
 
     await expect(productApi({})).rejects.toThrow("failed to fetch products");
   });
-
 });
